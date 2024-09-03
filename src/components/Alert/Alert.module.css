@@ -1,0 +1,29 @@
+.alert {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.success {
+  background-color: lightgreen;
+  border: 1px solid green;
+  color: green;
+}
+
+.error {
+  background-color: lightpink;
+  border: 1px solid darkred;
+  color: darkred;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  padding: 4px;
+  outline-color: lightseagreen;
+}

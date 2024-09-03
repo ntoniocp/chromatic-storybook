@@ -1,0 +1,11 @@
+.btn {
+  background-color: cadetblue;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 8px 12px;
+  outline-color: rgb(86, 185, 183);
+}
+
+.btn:hover, .btn:active  {
+  background-color: rgb(78, 130, 131);
+}
