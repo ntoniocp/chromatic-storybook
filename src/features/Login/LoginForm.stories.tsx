@@ -19,68 +19,107 @@ export const Default: Story = {
 
 export const InvalidRequired: Story = {
   name: "Invalid Submit (Required)",
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
-    const button = await canvas.getByRole("button");
-    await userEvent.click(button);
 
-    await canvas.findByText("Email is required");
-    await canvas.findByText("Password is required");
+    await step("Submits empty form", async () => {
+      const button = await canvas.getByRole("button");
+      await userEvent.click(button);
+    });
+
+    await step(
+      "Shows required errors for email and password respectively",
+      async () => {
+        await canvas.findByText("Email is required");
+        await canvas.findByText("Password is required");
+      }
+    );
   },
 };
 
 export const InvalidEmail: Story = {
   name: "Invalid Submit (Email format)",
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
 
-    const emailField = await canvas.getByLabelText("Email");
-    await userEvent.type(emailField, "test");
+    await step("Type invalid email", async () => {
+      const emailField = await canvas.getByLabelText("Email");
+      await userEvent.type(emailField, "test");
+    });
 
-    const passwordField = await canvas.getByLabelText("Password");
-    await userEvent.type(passwordField, "12345678");
+    await step("Type valid password", async () => {
+      const passwordField = await canvas.getByLabelText("Password");
+      await userEvent.type(passwordField, "12345678");
+    });
 
-    const button = await canvas.getByRole("button");
-    await userEvent.click(button);
+    await step("Click submit button", async () => {
+      const button = await canvas.getByRole("button");
+      await userEvent.click(button);
+    });
 
-    await canvas.findByText("Invalid email address");
+    await step("Shows invalid email address message", async () => {
+      await canvas.findByText("Invalid email address");
+    });
   },
 };
 
 export const InvalidPassword: Story = {
   name: "Invalid Submit (Password length)",
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
 
-    const emailField = await canvas.getByLabelText("Email");
-    await userEvent.type(emailField, "jane@doe.com");
+    await step("Type valid email", async () => {
+      const emailField = await canvas.getByLabelText("Email");
+      await userEvent.type(emailField, "jane@doe.com");
+    });
 
-    const passwordField = await canvas.getByLabelText("Password");
-    await userEvent.type(passwordField, "123");
+    await step("Type invalid password", async () => {
+      const passwordField = await canvas.getByLabelText("Password");
+      await userEvent.type(passwordField, "123");
+    });
 
-    const button = await canvas.getByRole("button");
-    await userEvent.click(button);
+    await step("Submit the form", async () => {
+      const button = await canvas.getByRole("button");
+      await userEvent.click(button);
+    });
 
-    await canvas.findByText("Password must have at least 8 characters");
+    await step("Shows invalid password length message", async () => {
+      await canvas.findByText("Password must have at least 8 characters");
+    });
   },
 };
 
 export const InvalidEmailCorrected: Story = {
   name: "Correcting Invalid Field",
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
 
-    const emailField = await canvas.getByLabelText("Email");
-    await userEvent.type(emailField, "jane");
+    await step("Enter an invalid email and a valid password", async () => {
+      const emailField = await canvas.getByLabelText("Email");
+      await userEvent.type(emailField, "jane");
 
-    const passwordField = await canvas.getByLabelText("Password");
-    await userEvent.type(passwordField, "12345678");
+      const passwordField = await canvas.getByLabelText("Password");
+      await userEvent.type(passwordField, "12345678");
+    });
 
-    const button = await canvas.getByRole("button");
-    await userEvent.click(button);
+    await step("Submit the form", async () => {
+      const button = await canvas.getByRole("button");
+      await userEvent.click(button);
+    });
 
-    await canvas.findByText("Invalid email address");
-    await userEvent.type(emailField, "@doe.com");
+    await step("Gets an invalid email message", async () => {
+      await canvas.findByText("Invalid email address");
+    });
+
+    await step("Corrects the email", async () => {
+      const emailField = await canvas.getByLabelText("Email");
+      await userEvent.type(emailField, "@doe.com");
+    });
+
+    await step("Invalid email message goes away", async () => {
+      const message = await canvas.queryByText("Invalid email address");
+      expect(message).not.toBeInTheDocument();
+    });
   },
 };
 
@@ -90,21 +129,25 @@ export const ValidSubmit: Story = {
   args: {
     onSubmit: console.log,
   },
-  play: async ({ canvasElement }) => {
+  play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
 
-    const emailField = await canvas.getByLabelText("Email");
-    await userEvent.type(emailField, "jane@doe.com");
+    await step("Enter email and password", async () => {
+      const emailField = await canvas.getByLabelText("Email");
+      await userEvent.type(emailField, "jane@doe.com");
 
-    const passwordField = await canvas.getByLabelText("Password");
-    await userEvent.type(passwordField, "12345678");
+      const passwordField = await canvas.getByLabelText("Password");
+      await userEvent.type(passwordField, "12345678");
+    });
 
-    const button = await canvas.getByRole("button");
-    await userEvent.click(button);
+    await step("Submit form", async () => {
+      const button = await canvas.getByRole("button");
+      await userEvent.click(button);
 
-    expect(log).toHaveBeenCalledWith({
-      email: "jane@doe.com",
-      password: "12345678",
+      expect(log).toHaveBeenCalledWith({
+        email: "jane@doe.com",
+        password: "12345678",
+      });
     });
 
     log.mockRestore();
