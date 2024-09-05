@@ -4,6 +4,7 @@
   border-radius: 8px;
   outline-color: rgb(86, 185, 183);
   padding: 8px 12px;
+  height: 1px;
 }
 
 .btn:hover, .btn:active  {
