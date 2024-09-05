@@ -11,7 +11,7 @@ export function Button(props: ButtonProps) {
     <button
       {...buttonProps}
       className={styles.btn}
-      style={{ width: full ? "100%" : "auto", height: 1 }}
+      style={{ width: full ? "100%" : "auto" }}
     />
   );
 }
