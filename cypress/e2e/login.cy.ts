@@ -1,5 +1,5 @@
 describe("Login Page", () => {
-  it("It should have a form with an email and password input and a button", () => {
+  it("Should have a form with an email and password input and a button", () => {
     cy.visit("/");
     cy.get("form").get('input[name="email"]');
     cy.get("form").get('input[name="password"]');
