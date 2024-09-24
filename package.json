@@ -2,7 +2,6 @@
   "name": "chromatic",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "homepage": "https://github.com/ntoniocp/chromatic-storybook",
   "scripts": {
     "dev": "vite",
@@ -15,13 +14,16 @@
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=chpt_db5d36e71b2dc9b",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "cy:open": "cypress open",
+    "cy:run": "ELECTRON_EXTRA_LAUNCH_ARGS=--remote-debugging-port=9222 npx cypress run"
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@chromatic-com/cypress": "^0.6.17",
     "@chromatic-com/storybook": "^1.8.0",
     "@eslint/js": "^9.9.0",
     "@storybook/addon-essentials": "^8.2.9",
@@ -37,6 +39,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "chromatic": "^11.7.1",
+    "cypress": "^13.14.2",
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",

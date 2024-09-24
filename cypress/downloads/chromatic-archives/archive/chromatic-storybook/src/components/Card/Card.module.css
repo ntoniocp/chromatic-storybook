@@ -1,0 +1,10 @@
+import { createHotContext as __vite__createHotContext } from "/chromatic-storybook/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/Card/Card.module.css");import { updateStyle as __vite__updateStyle, removeStyle as __vite__removeStyle } from "/chromatic-storybook/@vite/client"
+const __vite__id = "/Users/ntoniocp/Documents/Dev/chromatic-storybook/src/components/Card/Card.module.css"
+const __vite__css = "._card_1paat_1 {\n  background-color: #fff;\n  border: 2px solid black;\n  border-radius: 4px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  padding: 16px;\n}"
+__vite__updateStyle(__vite__id, __vite__css)
+export const card = "_card_1paat_1";
+export default {
+	card: card
+};
+
+import.meta.hot.prune(() => __vite__removeStyle(__vite__id))
