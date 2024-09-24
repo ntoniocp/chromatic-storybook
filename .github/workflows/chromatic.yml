@@ -55,7 +55,7 @@ jobs:
           retention-days: 30
 
   cypress-chromatic:
-    name: Run Chromatic
+    name: Run Cypress-Chromatic
     needs: cypress
     runs-on: ubuntu-latest
     steps:
