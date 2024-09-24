@@ -1,0 +1,10 @@
+import { createHotContext as __vite__createHotContext } from "/chromatic-storybook/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/Button/Button.module.css");import { updateStyle as __vite__updateStyle, removeStyle as __vite__removeStyle } from "/chromatic-storybook/@vite/client"
+const __vite__id = "/Users/ntoniocp/Documents/Dev/chromatic-storybook/src/components/Button/Button.module.css"
+const __vite__css = "._btn_1qlof_1 {\n  background-color: cadetblue;\n  border: 2px solid black;\n  border-radius: 8px;\n  outline-color: rgb(86, 185, 183);\n  padding: 8px 12px;\n}\n\n._btn_1qlof_1:hover, ._btn_1qlof_1:active  {\n  background-color: rgb(78, 130, 131);\n}"
+__vite__updateStyle(__vite__id, __vite__css)
+export const btn = "_btn_1qlof_1";
+export default {
+	btn: btn
+};
+
+import.meta.hot.prune(() => __vite__removeStyle(__vite__id))

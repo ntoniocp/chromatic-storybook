@@ -1,0 +1,15 @@
+export function validateEmail(email) {
+  if (!email) return "Email is required";
+  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+    return "Invalid email address";
+  }
+}
+export function validatePassword(password) {
+  if (!password) return "Password is required";
+  if (password.length < 8) return "Password must have at least 8 characters";
+}
+export function hasErrors(errors) {
+  return Object.values(errors).some(Boolean);
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZvcm1zLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBmdW5jdGlvbiB2YWxpZGF0ZUVtYWlsKGVtYWlsOiBzdHJpbmcpIHtcbiAgaWYgKCFlbWFpbCkgcmV0dXJuIFwiRW1haWwgaXMgcmVxdWlyZWRcIjtcblxuICBpZiAoIS9eW0EtWjAtOS5fJSstXStAW0EtWjAtOS4tXStcXC5bQS1aXXsyLDR9JC9pLnRlc3QoZW1haWwpKSB7XG4gICAgcmV0dXJuIFwiSW52YWxpZCBlbWFpbCBhZGRyZXNzXCI7XG4gIH1cbn1cblxuZXhwb3J0IGZ1bmN0aW9uIHZhbGlkYXRlUGFzc3dvcmQocGFzc3dvcmQ6IHN0cmluZykge1xuICBpZiAoIXBhc3N3b3JkKSByZXR1cm4gXCJQYXNzd29yZCBpcyByZXF1aXJlZFwiO1xuICBpZiAocGFzc3dvcmQubGVuZ3RoIDwgOCkgcmV0dXJuIFwiUGFzc3dvcmQgbXVzdCBoYXZlIGF0IGxlYXN0IDggY2hhcmFjdGVyc1wiO1xufVxuXG50eXBlIEJhc2VFcnJvcnMgPSBSZWNvcmQ8c3RyaW5nLCBzdHJpbmcgfCB1bmRlZmluZWQ+O1xuXG5leHBvcnQgZnVuY3Rpb24gaGFzRXJyb3JzPEVycm9yc09iaiBleHRlbmRzIEJhc2VFcnJvcnM+KGVycm9yczogRXJyb3JzT2JqKSB7XG4gIHJldHVybiBPYmplY3QudmFsdWVzKGVycm9ycykuc29tZShCb29sZWFuKTtcbn1cbiJdLCJtYXBwaW5ncyI6IkFBQU8sZ0JBQVMsY0FBYyxPQUFlO0FBQzNDLE1BQUksQ0FBQyxNQUFPLFFBQU87QUFFbkIsTUFBSSxDQUFDLDRDQUE0QyxLQUFLLEtBQUssR0FBRztBQUM1RCxXQUFPO0FBQUEsRUFDVDtBQUNGO0FBRU8sZ0JBQVMsaUJBQWlCLFVBQWtCO0FBQ2pELE1BQUksQ0FBQyxTQUFVLFFBQU87QUFDdEIsTUFBSSxTQUFTLFNBQVMsRUFBRyxRQUFPO0FBQ2xDO0FBSU8sZ0JBQVMsVUFBd0MsUUFBbUI7QUFDekUsU0FBTyxPQUFPLE9BQU8sTUFBTSxFQUFFLEtBQUssT0FBTztBQUMzQzsiLCJuYW1lcyI6W119

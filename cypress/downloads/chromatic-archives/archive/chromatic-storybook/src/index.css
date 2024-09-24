@@ -1,0 +1,6 @@
+import { createHotContext as __vite__createHotContext } from "/chromatic-storybook/@vite/client";import.meta.hot = __vite__createHotContext("/src/index.css");import { updateStyle as __vite__updateStyle, removeStyle as __vite__removeStyle } from "/chromatic-storybook/@vite/client"
+const __vite__id = "/Users/ntoniocp/Documents/Dev/chromatic-storybook/src/index.css"
+const __vite__css = "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nhtml, body {\n  height: 100%;\n  background: rgb(113, 202, 198);\n}\n\n"
+__vite__updateStyle(__vite__id, __vite__css)
+import.meta.hot.accept()
+import.meta.hot.prune(() => __vite__removeStyle(__vite__id))
