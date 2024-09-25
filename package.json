@@ -13,7 +13,6 @@
     "storybook": "storybook dev -p 6006",
     "test-storybook": "test-storybook",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_db5d36e71b2dc9b",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
